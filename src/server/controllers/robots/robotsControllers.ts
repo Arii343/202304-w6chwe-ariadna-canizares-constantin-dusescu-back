@@ -7,10 +7,9 @@ export const getRobots = async (
   next: NextFunction
 ) => {
   try {
-    res.header("Access-Control-Allow-Origin", "*");
     const robots = await Robot.find().exec();
-
     res.status(200).json({ robots });
+    res.header("Access-Control-Allow-Origin", "*");
   } catch (error: unknown) {
     next(error);
   }
